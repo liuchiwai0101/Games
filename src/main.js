@@ -103,7 +103,9 @@ function saveStats() {
 }
 
 function roomLink(code) {
-  const url = new URL(import.meta.env.BASE_URL, location.origin);
+  const url = new URL(location.href);
+  url.hash = '';
+  url.search = '';
   url.searchParams.set('room', code);
   return url.href;
 }
