@@ -1,27 +1,13 @@
 # 井字過三關
 
-玩家打開這個網址就能玩，不用安裝，也不用開 localhost：
+Open this link and play. Nothing to install, and no local server:
 
-**https://liuchiwai0101.github.io/Games/**
+**https://flashy-chatter-fyyxd.ship.place/**
 
-遊戲檔已經放在 `gh-pages` 分支。GitHub 不允許這個代理程式替你打開 Pages，所以要先到這裡按一次 Save：
+The page is the game. Choose **人機** to play the computer, **同機** for two people on one screen, or **連線** to share a room code. Then press **開局** and click the board.
 
-https://github.com/liuchiwai0101/Games/settings/pages
+Drag to turn the board. Scroll to zoom. Keys `1`–`9` are the nine squares, from the far row to the near row.
 
-- Source 選 **Deploy from a branch**
-- Branch 選 **gh-pages** 和 **/ (root)**
-- 按 **Save**
+A match is three gates. Three in a row wins a gate. Win two gates and you pass.
 
-大約一分鐘後，上面的網址就可以玩。之後玩家只需要那個網址。
-
-兩人在九宮格輪流落下金叉與玉環。橫、直、斜先連成三子即勝一關。三關裡先勝兩關的一方過關。
-
-## 怎麼下
-
-- **人機**：初學、進階、宗師。宗師在經典棋路不會輸。
-- **同機**：同一台裝置輪流點棋盤。
-- **連線**：一人按「開設房間」，把四位密碼或連結給另一個人。對方打開同一個網址，輸入密碼後加入。
-
-棋路可選 **經典**，或 **消子**（從第七子起，每落一子先撤去自己最舊的一子）。
-
-拖曳可旋轉棋盤，滾輪可拉近。鍵盤上排 `1` 到 `9` 對應由遠到近的九宮。
+**經典** fills the board normally. **消子** removes your oldest piece from the seventh move onward, so at most six pieces stay on the board.
