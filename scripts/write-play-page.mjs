@@ -20,10 +20,8 @@ const page = html
     /<link rel="stylesheet"[^>]*href="[^"]+\.css"[^>]*>/,
     () => `<style>${css}</style>`,
   )
-  .replace(
-    /<script type="module"[^>]*src="[^"]+\.js"><\/script>/,
-    () => `<script defer>${js}</script>`,
-  );
+  .replace(/<script type="module"[^>]*src="[^"]+\.js"><\/script>/, '')
+  .replace('</body>', () => `<script>${js}</script>\n  </body>`);
 if (page.includes('./assets/') || page.includes('type="module"')) {
   throw new Error('The playable page still points at build assets.');
 }
