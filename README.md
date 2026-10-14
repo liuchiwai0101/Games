@@ -1,8 +1,8 @@
 # 井字過三關
 
-Open this link and play. It is a GitHub domain. Nothing to install and nothing to deploy:
+Open this link and play:
 
-**https://htmlpreview.github.io/?https://github.com/liuchiwai0101/Games/blob/main/docs/index.html**
+**https://liuchiwai0101.github.io/Games/**
 
 Choose **人機** to play the computer, **同機** for two people on one screen, or **連線** to share a room code. Then press **開局** and click the board.
 

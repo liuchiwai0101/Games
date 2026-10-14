@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: deploy
@@ -26,3 +26,15 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+
+      - name: Publish the playable page on main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html docs/index.html
+          if git diff --cached --quiet; then
+            echo "Playable page is already current."
+          else
+            git commit -m "Update the playable page"
+            git push
+          fi

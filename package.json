@@ -6,7 +6,7 @@
   "description": "井字過三關 — a 3D online tic-tac-toe of three gates",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/write-play-page.mjs",
     "preview": "vite preview",
     "test": "node --test"
   },

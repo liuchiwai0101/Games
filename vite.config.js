@@ -9,5 +9,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    rollupOptions: {
+      input: 'index.dev.html',
+    },
   },
 });
