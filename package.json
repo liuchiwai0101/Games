@@ -1,0 +1,24 @@
+{
+  "name": "jingzi-guo-san-guan",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "井字過三關 — a 3D online tic-tac-toe of three gates",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "NODE_ENV=production node server.mjs",
+    "build": "vite build",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "three": "^0.170.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

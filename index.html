@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>井字過三關</title>
+    <meta
+      name="description"
+      content="立體動畫井字過三關。人機、同機雙人，或以房間密碼連線對戰。橫直斜連三，先勝兩關。"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="view" aria-label="井字過三關立體棋盤"></canvas>
+    <div id="flat" class="flat" hidden>
+      <div id="flatGrid" class="flat-grid"></div>
+    </div>
+    <div id="ui">
+      <header class="top">
+        <div class="brand">
+          <svg class="well" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M6 22 H58 M6 42 H58 M22 6 V58 M42 6 V58" />
+          </svg>
+          <div>
+            <h1>井字過三關</h1>
+            <p>橫、直、斜連成三子，先勝兩關</p>
+          </div>
+        </div>
+        <div class="readout">
+          <ol id="pips" class="pips" aria-label="三關">
+            <li data-i="0"><span>壹</span></li>
+            <li data-i="1"><span>貳</span></li>
+            <li data-i="2"><span>參</span></li>
+          </ol>
+          <div id="turnPill" class="pill">拖曳可旋轉棋盤</div>
+        </div>
+        <div class="top-actions">
+          <button type="button" id="soundBtn" class="ghost" aria-pressed="true">聲音</button>
+          <button type="button" id="helpBtn" class="ghost">玩法</button>
+        </div>
+      </header>
+
+      <footer class="dock">
+        <div id="banner" class="banner" hidden>
+          <span id="seal" class="seal" aria-hidden="true"></span>
+          <p id="bannerText"></p>
+          <button type="button" id="bannerAction" class="solid"></button>
+        </div>
+
+        <div id="setup">
+          <div class="row">
+            <div class="seg" id="modeSeg" role="group" aria-label="對局方式">
+              <button type="button" data-value="ai" class="on" aria-pressed="true">人機</button>
+              <button type="button" data-value="hot" aria-pressed="false">同機</button>
+              <button type="button" data-value="net" aria-pressed="false">連線</button>
+            </div>
+            <div class="seg" id="rulesSeg" role="group" aria-label="棋路">
+              <button type="button" data-value="classic" class="on" aria-pressed="true">經典</button>
+              <button type="button" data-value="vanish" aria-pressed="false">消子</button>
+            </div>
+          </div>
+          <div class="row" id="aiRow">
+            <div class="seg" id="sideSeg" role="group" aria-label="我方">
+              <button type="button" data-value="X" class="on" aria-pressed="true">我執金叉</button>
+              <button type="button" data-value="O" aria-pressed="false">我執玉環</button>
+            </div>
+            <div class="seg" id="levelSeg" role="group" aria-label="功力">
+              <button type="button" data-value="novice" aria-pressed="false">初學</button>
+              <button type="button" data-value="adept" class="on" aria-pressed="true">進階</button>
+              <button type="button" data-value="master" aria-pressed="false">宗師</button>
+            </div>
+          </div>
+          <div class="row" id="netRow" hidden>
+            <label class="field">稱呼 <input id="nick" maxlength="8" placeholder="俠客" autocomplete="nickname" /></label>
+            <button type="button" id="createRoom" class="solid">開設房間</button>
+            <label class="field">密碼 <input id="roomInput" maxlength="4" placeholder="四位" autocapitalize="characters" spellcheck="false" /></label>
+            <button type="button" id="joinRoom" class="ghost">加入</button>
+          </div>
+          <div class="row foot-row">
+            <button type="button" id="startBtn" class="solid">開局</button>
+            <p id="hint" class="hint">第一關由金叉先手，其後每關交換先手。</p>
+            <p id="record" class="hint"></p>
+          </div>
+          <p id="netStatus" class="hint" hidden></p>
+        </div>
+
+        <div id="matchBar" hidden>
+          <div class="scoreline">
+            <span id="scoreX" class="side x">金叉 0</span>
+            <span id="gateLabel" class="gate-label">第壹關</span>
+            <span id="scoreO" class="side o">玉環 0</span>
+          </div>
+          <p id="roomLine" class="room-line" hidden></p>
+          <div class="row">
+            <button type="button" id="copyCode" class="ghost" hidden>複製密碼</button>
+            <button type="button" id="leaveBtn" class="ghost">返回</button>
+            <p id="matchHint" class="hint">點空格落子，或按鍵盤 1 到 9。</p>
+          </div>
+        </div>
+      </footer>
+      <p id="toast" class="toast" hidden role="status"></p>
+      <div id="live" class="sr-only" aria-live="polite"></div>
+    </div>
+
+    <dialog id="help">
+      <form method="dialog">
+        <h2>怎麼玩</h2>
+        <p>兩人輪流在井字九宮落下金叉與玉環。橫向、直向或斜向先連成三子的一方，勝這一關。</p>
+        <p>一陣共三關，先贏得兩關的人過關。三關打完若勝數相同，就算平手。</p>
+        <p>經典棋路下滿九格仍無人連線，該關和棋。消子棋路從第七子起，每落一子先撤去自己最舊的一子，盤上至多六子，然後才判斷連線。將要消失的棋子會發亮。</p>
+        <p>拖曳可旋轉棋盤，滾輪或兩指可拉近。鍵盤上排 1 到 9 對應由遠到近的九宮，數字鍵區則照鍵面方位。</p>
+        <p>連線對戰由一人開設房間，把四位密碼或網址交給對手，即可在兩個畫面同桌。</p>
+        <button type="submit" class="solid">知道了</button>
+      </form>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
