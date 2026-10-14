@@ -22,7 +22,7 @@ const page = html
   )
   .replace(
     /<script type="module"[^>]*src="[^"]+\.js"><\/script>/,
-    () => `<script>${js}</script>`,
+    () => `<script defer>${js}</script>`,
   );
 if (page.includes('./assets/') || page.includes('type="module"')) {
   throw new Error('The playable page still points at build assets.');
