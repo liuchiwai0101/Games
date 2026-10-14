@@ -6,9 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
   group: deploy
@@ -28,13 +26,3 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
-
-      - name: Publish GitHub Pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          force_orphan: true
-          enable_jekyll: false
-          commit_message: Deploy game
