@@ -8,6 +8,8 @@ test('rooms seat two players and reject illegal moves', () => {
   const hub = new Hub();
   const created = hub.create({ name: '甲', rules: 'classic', token: 'token-aaaa-1111' });
   assert.equal(created.ok, true);
+  const fixed = hub.create({ name: '甲', rules: 'classic', token: 'token-cccc-3333', code: 'ab3k' });
+  assert.equal(fixed.code, 'AB3K');
   assert.equal(hub.view(created.code).seated.O, false);
   const joined = hub.join({ code: created.code.toLowerCase(), name: '乙', token: 'token-bbbb-2222' });
   assert.equal(joined.you, 'O');

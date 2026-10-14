@@ -5,13 +5,14 @@
   "type": "module",
   "description": "井字過三關 — a 3D online tic-tac-toe of three gates",
   "scripts": {
-    "dev": "node server.mjs",
-    "start": "NODE_ENV=production node server.mjs",
+    "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "test": "node --test"
   },
   "dependencies": {
     "express": "^4.21.2",
+    "peerjs": "^1.5.5",
     "three": "^0.170.0",
     "ws": "^8.18.0"
   },

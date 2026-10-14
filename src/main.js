@@ -102,6 +102,12 @@ function saveStats() {
   }
 }
 
+function roomLink(code) {
+  const url = new URL(import.meta.env.BASE_URL, location.origin);
+  url.searchParams.set('room', code);
+  return url.href;
+}
+
 function rememberRoom(code) {
   try {
     if (code) sessionStorage.setItem('jgsg-room', code);
@@ -153,7 +159,7 @@ function onModeChange() {
   aiRow.hidden = online;
   startBtn.hidden = online;
   hint.textContent = online
-    ? '開設房間後把密碼交給對手，或輸入密碼加入。'
+    ? '開設房間後把密碼交給對手。兩邊打開同一個網頁即可。'
     : mode === 'hot'
       ? '同一台裝置輪流落子。第一關由金叉先手。'
       : '第一關由金叉先手，其後每關交換先手。宗師棋力不會失手。';
@@ -467,7 +473,7 @@ document.querySelector('#joinRoom').addEventListener('click', () => {
   onlinePlay.join(code, name);
 });
 copyCode.addEventListener('click', async () => {
-  const link = `${location.origin}${location.pathname}?room=${roomCode}`;
+  const link = roomLink(roomCode);
   try {
     await navigator.clipboard.writeText(`${roomCode}　${link}`);
     showToast('已複製密碼與連結');

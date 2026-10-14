@@ -60,13 +60,14 @@ export class Hub {
     return { code, other };
   }
 
-  create({ name, rules, token }) {
+  create({ name, rules, token, code: requested }) {
     this.sweep();
     if (this.rooms.size >= MAX_ROOMS && !this.byToken.has(token)) {
       return { ok: false, error: '房間太多，稍後再試' };
     }
     const released = this.release(token);
-    let code = makeCode();
+    const preferred = String(requested || '').trim().toUpperCase();
+    let code = /^[A-Z0-9]{4}$/.test(preferred) ? preferred : makeCode();
     while (this.rooms.has(code)) code = makeCode();
     const match = createMatch(rules === 'vanish' ? 'vanish' : 'classic');
     const room = {
