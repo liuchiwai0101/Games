@@ -1,15 +1,17 @@
-# 井字過三關
+# 遊戲
 
 Open the game list:
 
 **https://liuchiwai0101.github.io/Games/**
 
-井字過三關 is the first game: **https://liuchiwai0101.github.io/Games/jingzi/**
+## 井字過三關
 
-Choose **人機** to play the computer, **同機** for two people on one screen, or **連線** to share a room code. Then press **開局** and click the board.
+**https://liuchiwai0101.github.io/Games/jingzi/**
 
-Drag to turn the board. Scroll to zoom. Keys `1`–`9` are the nine squares, from the far row to the near row.
+金叉對玉環。橫、直、斜連成三子，先勝兩關。可選人機、同機，或連線。
 
-A match is three gates. Three in a row wins a gate. Win two gates and you pass.
+## 貪吃蛇
 
-**經典** fills the board normally. **消子** removes your oldest piece from the seventh move onward, so at most six pieces stay on the board.
+**https://liuchiwai0101.github.io/Games/tanshe/**
+
+墨竹園裡的經典貪吃蛇。箭頭、WASD，或滑動轉向。吃果子會長一節；撞牆或咬到自己就結束。

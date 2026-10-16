@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>遊戲</title>
-    <meta name="description" content="打開就能玩。第一局是井字過三關。" />
+    <meta name="description" content="打開就能玩。井字過三關與貪吃蛇。" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +15,7 @@
         --ink: #f4ecdf;
         --muted: #cbbda8;
         --gold: #e4c27a;
+        --jade: #7ed0a8;
         --line: rgba(228, 194, 122, 0.38);
       }
       * { box-sizing: border-box; }
@@ -51,6 +52,10 @@
         color: var(--muted);
         letter-spacing: 0.08em;
       }
+      .list {
+        display: grid;
+        gap: 16px;
+      }
       .game {
         display: grid;
         grid-template-columns: auto 1fr auto;
@@ -65,15 +70,25 @@
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
       }
       .game:hover { border-color: var(--gold); }
-      .board {
+      .game.snake {
+        border-color: rgba(126, 208, 168, 0.38);
+        background: rgba(10, 24, 20, 0.82);
+      }
+      .game.snake:hover { border-color: var(--jade); }
+      .mark {
         width: 92px;
         height: 92px;
       }
-      .board path {
+      .mark path {
         fill: none;
         stroke: var(--gold);
         stroke-width: 5;
         stroke-linecap: round;
+      }
+      .mark.snake-mark path {
+        stroke: var(--jade);
+        fill: rgba(126, 208, 168, 0.12);
+        stroke-width: 4;
       }
       h2 {
         margin: 0 0 8px;
@@ -97,6 +112,10 @@
         font-size: 13px;
         letter-spacing: 0.08em;
       }
+      .game.snake .tags span {
+        border-color: rgba(126, 208, 168, 0.38);
+        color: var(--jade);
+      }
       .go {
         padding: 10px 18px;
         border-radius: 999px;
@@ -104,6 +123,10 @@
         color: #24170c;
         font-weight: 700;
         letter-spacing: 0.14em;
+      }
+      .game.snake .go {
+        background: linear-gradient(180deg, #b8f0d0, #4cae84);
+        color: #062118;
       }
       @media (max-width: 640px) {
         .game { grid-template-columns: auto 1fr; }
@@ -115,21 +138,41 @@
     <p class="eyebrow">GAMES</p>
     <h1>遊戲</h1>
     <p class="lead">選一局，打開就能玩。</p>
-    <a class="game" href="jingzi/">
-      <svg class="board" viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M8 22 H56 M8 42 H56 M22 8 V56 M42 8 V56" />
-      </svg>
-      <span>
-        <h2>井字過三關</h2>
-        <p>金叉對玉環。橫、直、斜連成三子，先勝兩關。</p>
-        <span class="tags">
-          <span>立體</span>
-          <span>人機</span>
-          <span>同機</span>
-          <span>連線</span>
+    <div class="list">
+      <a class="game" href="jingzi/">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 22 H56 M8 42 H56 M22 8 V56 M42 8 V56" />
+        </svg>
+        <span>
+          <h2>井字過三關</h2>
+          <p>金叉對玉環。橫、直、斜連成三子，先勝兩關。</p>
+          <span class="tags">
+            <span>立體</span>
+            <span>人機</span>
+            <span>同機</span>
+            <span>連線</span>
+          </span>
         </span>
-      </span>
-      <span class="go">進入</span>
-    </a>
+        <span class="go">進入</span>
+      </a>
+      <a class="game snake" href="tanshe/">
+        <svg class="mark snake-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M12 40 C18 28, 26 24, 34 28 C42 32, 46 24, 52 20" />
+          <path d="M34 28 C30 36, 24 42, 18 46" />
+          <circle cx="52" cy="20" r="4" />
+        </svg>
+        <span>
+          <h2>貪吃蛇</h2>
+          <p>墨竹園裡鑽行。吃果子就會長一節，別撞牆，也別咬到自己。</p>
+          <span class="tags">
+            <span>經典</span>
+            <span>單人</span>
+            <span>觸控</span>
+            <span>計分</span>
+          </span>
+        </span>
+        <span class="go">進入</span>
+      </a>
+    </div>
   </body>
 </html>

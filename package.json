@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "井字過三關 — a 3D online tic-tac-toe of three gates",
+  "description": "Browser games: 井字過三關 and 貪吃蛇",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/write-play-page.mjs",

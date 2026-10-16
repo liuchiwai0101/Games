@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>貪吃蛇</title>
+    <meta name="description" content="墨竹園裡的貪吃蛇。吃果子、拉長身子、別撞牆。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/snake/style.css" />
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true"></div>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">第二局</p>
+        <h1>貪吃蛇</h1>
+      </div>
+      <button type="button" id="pauseBtn" class="ghost" hidden>暫停</button>
+    </header>
+
+    <main class="stage">
+      <div class="board-shell">
+        <canvas id="board" width="540" height="540" aria-label="貪吃蛇棋盤"></canvas>
+        <div id="veil" class="veil">
+          <div class="panel">
+            <p id="seal" class="seal" hidden>終</p>
+            <h2 id="panelTitle">墨竹園</h2>
+            <p id="panelCopy">箭頭或滑動轉向。吃下果子就會長一節，撞牆或咬到自己就結束。</p>
+            <button type="button" id="startBtn" class="solid">開局</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="meter">
+        <div>
+          <span>得分</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span>最佳</span>
+          <strong id="best">0</strong>
+        </div>
+        <div>
+          <span>長度</span>
+          <strong id="length">3</strong>
+        </div>
+      </aside>
+
+      <div class="pad" aria-label="方向鍵">
+        <button type="button" data-dir="up" aria-label="上">▲</button>
+        <div class="pad-mid">
+          <button type="button" data-dir="left" aria-label="左">◀</button>
+          <button type="button" data-dir="right" aria-label="右">▶</button>
+        </div>
+        <button type="button" data-dir="down" aria-label="下">▼</button>
+      </div>
+    </main>
+
+    <script type="module" src="/src/snake/main.js"></script>
+  </body>
+</html>

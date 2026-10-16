@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import path from 'node:path';
 
 export default defineConfig({
   base: './',
@@ -10,7 +11,10 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     rollupOptions: {
-      input: 'index.dev.html',
+      input: {
+        jingzi: path.resolve('index.dev.html'),
+        tanshe: path.resolve('tanshe/source.html'),
+      },
     },
   },
 });
