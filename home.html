@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>遊戲</title>
+    <meta name="description" content="打開就能玩。第一局是井字過三關。" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #f4ecdf;
+        --muted: #cbbda8;
+        --gold: #e4c27a;
+        --line: rgba(228, 194, 122, 0.38);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(ellipse at 50% 0%, rgba(228, 194, 122, 0.16), transparent 42%),
+          #100c0b;
+        color: var(--ink);
+        font-family: "Noto Serif TC", "Songti TC", serif;
+      }
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 48px 20px 64px;
+      }
+      .eyebrow {
+        margin: 0;
+        letter-spacing: 0.28em;
+        color: var(--gold);
+        font-size: 13px;
+      }
+      h1 {
+        margin: 10px 0 8px;
+        font-family: "ZCOOL XiaoWei", serif;
+        font-size: clamp(48px, 8vw, 84px);
+        font-weight: 400;
+        letter-spacing: 0.18em;
+        line-height: 1;
+      }
+      .lead {
+        margin: 0 0 36px;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+      }
+      .game {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 22px;
+        align-items: center;
+        padding: 22px;
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: rgba(28, 18, 16, 0.78);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      }
+      .game:hover { border-color: var(--gold); }
+      .board {
+        width: 92px;
+        height: 92px;
+      }
+      .board path {
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 5;
+        stroke-linecap: round;
+      }
+      h2 {
+        margin: 0 0 8px;
+        font-family: "ZCOOL XiaoWei", serif;
+        font-size: 36px;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+      }
+      .game p { margin: 0; color: var(--muted); line-height: 1.7; }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .tags span {
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--gold);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+      }
+      .go {
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #f0d7a0, #c99645);
+        color: #24170c;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+      @media (max-width: 640px) {
+        .game { grid-template-columns: auto 1fr; }
+        .go { grid-column: 2; justify-self: start; }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="eyebrow">GAMES</p>
+    <h1>遊戲</h1>
+    <p class="lead">選一局，打開就能玩。</p>
+    <a class="game" href="jingzi/">
+      <svg class="board" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M8 22 H56 M8 42 H56 M22 8 V56 M42 8 V56" />
+      </svg>
+      <span>
+        <h2>井字過三關</h2>
+        <p>金叉對玉環。橫、直、斜連成三子，先勝兩關。</p>
+        <span class="tags">
+          <span>立體</span>
+          <span>人機</span>
+          <span>同機</span>
+          <span>連線</span>
+        </span>
+      </span>
+      <span class="go">進入</span>
+    </a>
+  </body>
+</html>

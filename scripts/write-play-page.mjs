@@ -25,7 +25,8 @@ const page = html
 if (page.includes('./assets/') || page.includes('type="module"')) {
   throw new Error('The playable page still points at build assets.');
 }
-fs.writeFileSync('index.html', page);
-fs.mkdirSync('docs', { recursive: true });
-fs.writeFileSync(path.join('docs', 'index.html'), page);
+fs.mkdirSync('jingzi', { recursive: true });
+fs.writeFileSync(path.join('jingzi', 'index.html'), page);
+fs.copyFileSync('home.html', 'index.html');
+fs.copyFileSync('public/favicon.svg', 'favicon.svg');
 console.log(`playable page ${page.length} bytes`);

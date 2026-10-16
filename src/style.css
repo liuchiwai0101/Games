@@ -171,6 +171,11 @@ canvas#view {
 
 .top-actions { display: flex; gap: 8px; }
 
+a.ghost {
+  display: inline-block;
+  text-decoration: none;
+}
+
 .ghost, .solid {
   border-radius: 999px;
   padding: 8px 16px;

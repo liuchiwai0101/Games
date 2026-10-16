@@ -1,8 +1,10 @@
 # 井字過三關
 
-Open this link and play:
+Open the game list:
 
 **https://liuchiwai0101.github.io/Games/**
+
+井字過三關 is the first game: **https://liuchiwai0101.github.io/Games/jingzi/**
 
 Choose **人機** to play the computer, **同機** for two people on one screen, or **連線** to share a room code. Then press **開局** and click the board.
 
