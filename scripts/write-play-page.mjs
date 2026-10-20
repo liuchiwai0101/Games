@@ -27,7 +27,7 @@ function inlinePage(htmlPath) {
   const css = fs.readFileSync(resolveAsset(htmlPath, cssMatch[1]), 'utf8');
   const js = bundleJs(resolveAsset(htmlPath, jsMatch[1]));
   html = html
-    .replace(/<link rel="icon"[^>]*>\s*/g, '')
+    .replace(/<link rel="icon"[^>]*>/g, '<link rel="icon" href="../favicon.svg" type="image/svg+xml" />')
     .replace(/<link rel="modulepreload"[^>]*>\s*/g, '')
     .replace(cssMatch[0], () => `<style>${css}</style>`)
     .replace(jsMatch[0], '')
@@ -54,20 +54,26 @@ if (!pages.length) throw new Error('Build HTML was not found.');
 
 let jingziHtml = null;
 let tansheHtml = null;
+let cailaiHtml = null;
 for (const file of pages) {
   const text = fs.readFileSync(file, 'utf8');
-  if (text.includes('貪吃蛇')) tansheHtml = inlinePage(file);
+  if (text.includes('踩雷')) cailaiHtml = inlinePage(file);
+  else if (text.includes('貪吃蛇')) tansheHtml = inlinePage(file);
   else if (text.includes('井字過三關')) jingziHtml = inlinePage(file);
 }
 
 if (!jingziHtml) throw new Error('井字過三關 page was not built.');
 if (!tansheHtml) throw new Error('貪吃蛇 page was not built.');
+if (!cailaiHtml) throw new Error('踩雷 page was not built.');
 
 fs.mkdirSync('jingzi', { recursive: true });
 fs.mkdirSync('tanshe', { recursive: true });
+fs.mkdirSync('cailai', { recursive: true });
 fs.writeFileSync(path.join('jingzi', 'index.html'), jingziHtml);
 fs.writeFileSync(path.join('tanshe', 'index.html'), tansheHtml);
+fs.writeFileSync(path.join('cailai', 'index.html'), cailaiHtml);
 fs.copyFileSync('home.html', 'index.html');
 fs.copyFileSync('public/favicon.svg', 'favicon.svg');
 console.log(`jingzi ${jingziHtml.length} bytes`);
 console.log(`tanshe ${tansheHtml.length} bytes`);
+console.log(`cailai ${cailaiHtml.length} bytes`);

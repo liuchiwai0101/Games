@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>踩雷</title>
+    <meta name="description" content="夜燈礦場裡的踩雷。揭開空格、插上朱砂旗，別踩中地雷。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/mine/style.css" />
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">第三局</p>
+        <h1>踩雷</h1>
+      </div>
+      <button type="button" id="face" class="face" aria-label="重新開局">🙂</button>
+    </header>
+
+    <main class="stage">
+      <div class="hud">
+        <div class="readout" aria-label="剩餘地雷">
+          <span>雷</span>
+          <strong id="left">10</strong>
+        </div>
+        <div class="levels" role="group" aria-label="難度">
+          <button type="button" data-level="easy" class="on">初級</button>
+          <button type="button" data-level="mid">中級</button>
+          <button type="button" data-level="hard">高級</button>
+        </div>
+        <div class="readout" aria-label="時間">
+          <span>秒</span>
+          <strong id="time">0</strong>
+        </div>
+      </div>
+      <p id="status" class="status">點開一格。右鍵或長按插旗。數字上再點可一次掀開周圍。</p>
+      <div id="grid" class="grid" role="grid"></div>
+    </main>
+    <script type="module" src="/src/mine/main.js"></script>
+  </body>
+</html>

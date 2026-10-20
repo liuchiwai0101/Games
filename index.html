@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>遊戲</title>
-    <meta name="description" content="打開就能玩。井字過三關與貪吃蛇。" />
+    <meta name="description" content="打開就能玩。井字過三關、貪吃蛇與踩雷。" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -128,6 +128,25 @@
         background: linear-gradient(180deg, #b8f0d0, #4cae84);
         color: #062118;
       }
+      .game.mine {
+        border-color: rgba(231, 161, 90, 0.4);
+        background: rgba(24, 16, 18, 0.84);
+      }
+      .game.mine:hover { border-color: #e7a15a; }
+      .mark.mine-mark path,
+      .mark.mine-mark circle {
+        stroke: #e7a15a;
+        fill: rgba(225, 91, 76, 0.16);
+        stroke-width: 4;
+      }
+      .game.mine .tags span {
+        border-color: rgba(231, 161, 90, 0.4);
+        color: #e7a15a;
+      }
+      .game.mine .go {
+        background: linear-gradient(180deg, #f2c79a, #d38448);
+        color: #2a140c;
+      }
       @media (max-width: 640px) {
         .game { grid-template-columns: auto 1fr; }
         .go { grid-column: 2; justify-self: start; }
@@ -169,6 +188,25 @@
             <span>單人</span>
             <span>觸控</span>
             <span>計分</span>
+          </span>
+        </span>
+        <span class="go">進入</span>
+      </a>
+      <a class="game mine" href="cailai/">
+        <svg class="mark mine-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M14 18 H50 V46 H14 Z" />
+          <path d="M32 18 V46 M14 32 H50" />
+          <circle cx="44" cy="22" r="5" />
+          <path d="M44 22 V34" />
+        </svg>
+        <span>
+          <h2>踩雷</h2>
+          <p>夜燈礦場。揭開空格、插上朱砂旗，別踩中那一顆。</p>
+          <span class="tags">
+            <span>經典</span>
+            <span>單人</span>
+            <span>三級</span>
+            <span>計時</span>
           </span>
         </span>
         <span class="go">進入</span>

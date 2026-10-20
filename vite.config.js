@@ -14,6 +14,7 @@ export default defineConfig({
       input: {
         jingzi: path.resolve('index.dev.html'),
         tanshe: path.resolve('tanshe/source.html'),
+        cailai: path.resolve('cailai/source.html'),
       },
     },
   },
