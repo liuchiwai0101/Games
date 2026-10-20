@@ -187,9 +187,10 @@ test('breakout removes a brick and loses a life below the paddle', () => {
   match = { ...match, ball: { ...match.ball, x: match.bricks[0].x + 10, y: match.bricks[0].y + 28, vx: 0, vy: -6 } };
   const before = Math.hypot(match.ball.vx, match.ball.vy);
   let hit = match;
-  for (let i = 0; i < 6; i += 1) hit = step(hit);
-  assert.ok(hit.score >= 10);
-  assert.ok(Math.hypot(hit.ball.vx, hit.ball.vy) > before + 0.2);
+  for (let i = 0; i < 12 && hit.score < 10; i += 1) hit = step(hit);
+  assert.equal(hit.score, 10);
+  const after = Math.hypot(hit.ball.vx, hit.ball.vy);
+  assert.ok(Math.abs(after / before - 1.1) < 0.02);
   let fallen = launch(createMatch());
   fallen = { ...fallen, ball: { ...fallen.ball, x: 200, y: 642, vx: 0, vy: 8 } };
   fallen = step(fallen);

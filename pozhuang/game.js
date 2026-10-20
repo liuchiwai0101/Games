@@ -1,7 +1,7 @@
 export const WIDTH = 480;
 export const HEIGHT = 640;
-const BRICK_SPEED = 0.28;
-const MAX_SPEED = 10;
+const BRICK_SPEED = 1.1;
+const MAX_SPEED = 16;
 
 function bricksFor(level) {
   const rows = Math.min(5 + (level % 4), 8);
@@ -45,9 +45,9 @@ function speedOf(ball) {
   return Math.hypot(ball.vx, ball.vy);
 }
 
-function scaleSpeed(ball, extra) {
+function scaleSpeed(ball) {
   const speed = speedOf(ball);
-  const next = Math.min(MAX_SPEED, speed + extra);
+  const next = Math.min(MAX_SPEED, speed * BRICK_SPEED);
   if (!speed) {
     ball.vy = ball.vy < 0 ? -next : next;
     return;
@@ -89,7 +89,7 @@ export function step(state) {
     brick.hp = 0;
     score += 10;
     ball.vy *= -1;
-    scaleSpeed(ball, BRICK_SPEED);
+    scaleSpeed(ball);
     ball.y += ball.vy;
     break;
   }
