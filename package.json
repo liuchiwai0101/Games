@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Browser games: 井字過三關, 貪吃蛇, and 踩雷",
+  "description": "Browser games: 井字過三關, 貪吃蛇, 踩雷, and 紅警 2",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/write-play-page.mjs",

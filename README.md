@@ -21,3 +21,9 @@ Open the game list:
 **https://liuchiwai0101.github.io/Games/cailai/**
 
 夜燈礦場。點開空格，右鍵或長按插旗。初級、中級、高級三種盤面，第一下不會踩雷。
+
+## 紅警 2
+
+**https://liuchiwai0101.github.io/Games/hongjing/**
+
+既有的網頁紅井（RA2WEB）嵌在遊戲清單裡。客戶端與遊戲資源仍由 RA2WEB 提供，本倉庫不附帶紅警 2 的原版素材。

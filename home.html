@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>遊戲</title>
-    <meta name="description" content="打開就能玩。井字過三關、貪吃蛇與踩雷。" />
+    <meta name="description" content="打開就能玩。井字過三關、貪吃蛇、踩雷與紅警 2。" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -147,6 +147,24 @@
         background: linear-gradient(180deg, #f2c79a, #d38448);
         color: #2a140c;
       }
+      .game.alert {
+        border-color: rgba(196, 92, 74, 0.5);
+        background: rgba(32, 14, 14, 0.86);
+      }
+      .game.alert:hover { border-color: #e07a68; }
+      .mark.alert-mark path {
+        stroke: #e07a68;
+        fill: rgba(196, 92, 74, 0.14);
+        stroke-width: 4;
+      }
+      .game.alert .tags span {
+        border-color: rgba(224, 122, 104, 0.45);
+        color: #e7b2a8;
+      }
+      .game.alert .go {
+        background: linear-gradient(180deg, #f0b2a6, #b55248);
+        color: #2a100e;
+      }
       @media (max-width: 640px) {
         .game { grid-template-columns: auto 1fr; }
         .go { grid-column: 2; justify-self: start; }
@@ -207,6 +225,25 @@
             <span>單人</span>
             <span>三級</span>
             <span>計時</span>
+          </span>
+        </span>
+        <span class="go">進入</span>
+      </a>
+      <a class="game alert" href="hongjing/">
+        <svg class="mark alert-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M14 40 H50 V50 H14 Z" />
+          <path d="M24 40 V30 H40 V40" />
+          <path d="M32 30 V16" />
+          <path d="M20 22 A16 16 0 0 1 44 22" />
+        </svg>
+        <span>
+          <h2>紅警 2</h2>
+          <p>既有的網頁紅井。在這一頁裡連線對戰，不用另外安裝。</p>
+          <span class="tags">
+            <span>即時戰略</span>
+            <span>連線</span>
+            <span>RA2WEB</span>
+            <span>網頁紅井</span>
           </span>
         </span>
         <span class="go">進入</span>
