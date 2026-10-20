@@ -1,0 +1,25 @@
+body { --bg: #102018; --accent: #8fd0a8; }
+.table { width: min(980px, 100%); margin: 0 auto; }
+.toprow, .columns { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.toprow { margin-bottom: 14px; }
+.pile { min-height: 84px; }
+.card, .slot {
+  white-space: pre-line;
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 244, 220, 0.28);
+  background: rgba(0, 0, 0, 0.18);
+  display: grid;
+  place-items: center;
+  font-family: "ZCOOL XiaoWei", serif;
+  font-size: clamp(16px, 3vw, 28px);
+  line-height: 1.05;
+}
+.card.red { color: #c4473a; background: #f7f1e6; }
+.card.black { color: #1d1a17; background: #f7f1e6; }
+.card.down { background: repeating-linear-gradient(45deg, #1d6b4a, #1d6b4a 6px, #174e38 6px, #174e38 12px); color: transparent; }
+.card.on { outline: 3px solid #f2d48a; }
+.columns .card { margin-top: -46px; }
+.columns .card:first-child { margin-top: 0; }
+.spacer { grid-column: span 1; }

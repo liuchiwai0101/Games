@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>破磚</title>
+    <meta name="description" content="破磚。移動底板接住彈珠，把磚打完。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../play.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">街機</p>
+        <h1>破磚</h1>
+      </div>
+      <button type="button" id="reset" class="textbtn">重開</button>
+    </header>
+    <main class="stage">
+      <p id="status" class="status">按一下或按空白鍵發球。左右移動底板。</p>
+      <canvas id="view" width="480" height="640"></canvas>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

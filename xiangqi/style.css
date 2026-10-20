@@ -1,0 +1,24 @@
+body { --bg: #16110c; --accent: #e4c27a; }
+.xiang { width: min(96vw, 460px); margin: 0 auto; padding: 22px 16px; }
+.sheet { position: relative; aspect-ratio: 8 / 9; }
+.lines, #layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lines { background: #e7c48a; border-radius: 8px; }
+.piece, .dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 12.4%;
+  height: 11%;
+  border-radius: 50%;
+  padding: 0;
+}
+.piece {
+  border: 1.5px solid #5a3418;
+  font-family: "ZCOOL XiaoWei", serif;
+  font-size: clamp(16px, 4.4vw, 24px);
+  line-height: 1;
+}
+.piece.r { background: #f4e2c4; color: #9d2a22; }
+.piece.b { background: #f7f1e4; color: #1c1c1c; }
+.piece.on { outline: 3px solid #9d2a22; }
+.dot { background: rgba(90, 52, 24, 0.28); }
+.dot.take { background: rgba(157, 42, 34, 0.45); }

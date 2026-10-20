@@ -1,0 +1,22 @@
+body { --bg: #140e0a; --accent: #e4c27a; }
+.board {
+  display: grid;
+  width: min(96vw, 560px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+  background-color: #e2b56a;
+  background-image:
+    linear-gradient(#6a4524 1.5px, transparent 1.5px),
+    linear-gradient(90deg, #6a4524 1.5px, transparent 1.5px);
+  background-size: calc(100% / 14) calc(100% / 14);
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 10px #c99555;
+}
+.cell {
+  border-radius: 50%;
+  background: transparent;
+}
+.cell.p1 { background: radial-gradient(circle at 35% 30%, #666, #151515 64%); }
+.cell.p2 { background: radial-gradient(circle at 35% 30%, #fff, #dedede 64%); }
+.cell.last { outline: 2px solid #9a3412; outline-offset: -3px; }

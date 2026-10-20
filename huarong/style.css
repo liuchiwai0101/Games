@@ -1,0 +1,36 @@
+body { --bg: #14100c; --accent: #e2b56a; }
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 6px;
+  width: min(92vw, 360px);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 16px;
+  background:
+    linear-gradient(#1a140f, #1a140f) bottom / 100% 18% no-repeat,
+    #6a4630;
+}
+.piece {
+  border-radius: 10px;
+  background: #e7c48a;
+  color: #3a2414;
+  font-family: "ZCOOL XiaoWei", serif;
+  font-size: clamp(16px, 4vw, 22px);
+}
+.piece.on { outline: 3px solid #f4ecdf; }
+.piece.cao { background: #c4563a; color: #fff6ea; }
+.dirs {
+  display: grid;
+  grid-template-columns: repeat(4, 64px);
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.dirs button {
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}

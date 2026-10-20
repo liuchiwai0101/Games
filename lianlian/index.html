@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>連連看</title>
+    <meta name="description" content="連連看。兩枚相同的圖案，連線轉彎不超過兩次。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../play.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">解謎</p>
+        <h1>連連看</h1>
+      </div>
+      <button type="button" id="reset" class="textbtn">重開</button>
+    </header>
+    <main class="stage">
+      <p id="status" class="status">點兩枚相同圖案。連線最多轉兩個彎。</p>
+      <div class="toolbar">
+        <button type="button" id="hint" class="textbtn">提示</button>
+        <button type="button" id="mix" class="textbtn">重排</button>
+      </div>
+      <div id="grid" class="grid"></div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
