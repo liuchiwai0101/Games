@@ -185,9 +185,11 @@ test('sudoku puzzles keep a single solution', () => {
 test('breakout removes a brick and loses a life below the paddle', () => {
   let match = launch(createMatch());
   match = { ...match, ball: { ...match.ball, x: match.bricks[0].x + 10, y: match.bricks[0].y + 28, vx: 0, vy: -6 } };
+  const before = Math.hypot(match.ball.vx, match.ball.vy);
   let hit = match;
   for (let i = 0; i < 6; i += 1) hit = step(hit);
   assert.ok(hit.score >= 10);
+  assert.ok(Math.hypot(hit.ball.vx, hit.ball.vy) > before + 0.2);
   let fallen = launch(createMatch());
   fallen = { ...fallen, ball: { ...fallen.ball, x: 200, y: 642, vx: 0, vy: 8 } };
   fallen = step(fallen);

@@ -34,7 +34,7 @@ function frame() {
     ? '彈珠落地了。按重開。'
     : state.held
       ? '按一下畫面或空白鍵發球。'
-      : '左右移動，或用方向鍵。';
+      : '每破一塊磚，彈珠會再快一點。';
   window.requestAnimationFrame(frame);
 }
 
