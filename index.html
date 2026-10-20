@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>遊戲</title>
-    <meta name="description" content="打開就能玩。井字過三關、貪吃蛇、踩雷與紅警 2。" />
+    <meta name="description" content="打開就能玩。棋、解謎、街機，和網頁紅警。" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,238 +16,193 @@
         --muted: #cbbda8;
         --gold: #e4c27a;
         --jade: #7ed0a8;
-        --line: rgba(228, 194, 122, 0.38);
+        --paper: #d7d2c5;
+        --alert: #e07a68;
+        --line: rgba(228, 194, 122, 0.32);
       }
       * { box-sizing: border-box; }
       html, body {
         margin: 0;
         min-height: 100%;
         background:
-          radial-gradient(ellipse at 50% 0%, rgba(228, 194, 122, 0.16), transparent 42%),
+          radial-gradient(ellipse at 50% 0%, rgba(228, 194, 122, 0.14), transparent 36%),
           #100c0b;
         color: var(--ink);
         font-family: "Noto Serif TC", "Songti TC", serif;
       }
-      body {
-        max-width: 880px;
-        margin: 0 auto;
-        padding: 48px 20px 64px;
-      }
-      .eyebrow {
-        margin: 0;
-        letter-spacing: 0.28em;
-        color: var(--gold);
-        font-size: 13px;
-      }
+      body { max-width: 1080px; margin: 0 auto; padding: 28px 20px 72px; }
+      .eyebrow { margin: 0; letter-spacing: 0.28em; color: var(--gold); font-size: 12px; }
       h1 {
-        margin: 10px 0 8px;
+        margin: 8px 0 6px;
         font-family: "ZCOOL XiaoWei", serif;
-        font-size: clamp(48px, 8vw, 84px);
+        font-size: clamp(42px, 7vw, 68px);
         font-weight: 400;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.16em;
         line-height: 1;
       }
-      .lead {
-        margin: 0 0 36px;
-        color: var(--muted);
+      .lead { margin: 0 0 18px; color: var(--muted); letter-spacing: 0.06em; }
+      .tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 22px; }
+      .jump { display: flex; flex-wrap: wrap; gap: 8px; }
+      .jump a, #find {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(28, 18, 16, 0.72);
+        color: inherit;
+        text-decoration: none;
+        padding: 8px 14px;
         letter-spacing: 0.08em;
       }
-      .list {
-        display: grid;
-        gap: 16px;
+      #find { min-width: min(100%, 220px); font: inherit; }
+      .group { margin: 0 0 28px; }
+      .group h2 {
+        margin: 0 0 12px;
+        font-family: "ZCOOL XiaoWei", serif;
+        font-size: 28px;
+        font-weight: 400;
+        letter-spacing: 0.14em;
       }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
       .game {
         display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 22px;
+        grid-template-columns: 52px 1fr;
+        gap: 12px;
         align-items: center;
-        padding: 22px;
+        min-height: 92px;
+        padding: 14px;
         text-decoration: none;
         color: inherit;
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 18px;
         background: rgba(28, 18, 16, 0.78);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
       }
       .game:hover { border-color: var(--gold); }
-      .game.snake {
-        border-color: rgba(126, 208, 168, 0.38);
-        background: rgba(10, 24, 20, 0.82);
-      }
-      .game.snake:hover { border-color: var(--jade); }
-      .mark {
-        width: 92px;
-        height: 92px;
-      }
-      .mark path {
-        fill: none;
-        stroke: var(--gold);
-        stroke-width: 5;
-        stroke-linecap: round;
-      }
-      .mark.snake-mark path {
-        stroke: var(--jade);
-        fill: rgba(126, 208, 168, 0.12);
-        stroke-width: 4;
-      }
-      h2 {
-        margin: 0 0 8px;
-        font-family: "ZCOOL XiaoWei", serif;
-        font-size: 36px;
-        font-weight: 400;
-        letter-spacing: 0.12em;
-      }
-      .game p { margin: 0; color: var(--muted); line-height: 1.7; }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 14px;
-      }
-      .tags span {
-        padding: 4px 10px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        color: var(--gold);
-        font-size: 13px;
-        letter-spacing: 0.08em;
-      }
-      .game.snake .tags span {
-        border-color: rgba(126, 208, 168, 0.38);
-        color: var(--jade);
-      }
-      .go {
-        padding: 10px 18px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, #f0d7a0, #c99645);
-        color: #24170c;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-      }
-      .game.snake .go {
-        background: linear-gradient(180deg, #b8f0d0, #4cae84);
-        color: #062118;
-      }
-      .game.mine {
-        border-color: rgba(231, 161, 90, 0.4);
-        background: rgba(24, 16, 18, 0.84);
-      }
-      .game.mine:hover { border-color: #e7a15a; }
-      .mark.mine-mark path,
-      .mark.mine-mark circle {
-        stroke: #e7a15a;
-        fill: rgba(225, 91, 76, 0.16);
-        stroke-width: 4;
-      }
-      .game.mine .tags span {
-        border-color: rgba(231, 161, 90, 0.4);
-        color: #e7a15a;
-      }
-      .game.mine .go {
-        background: linear-gradient(180deg, #f2c79a, #d38448);
-        color: #2a140c;
-      }
-      .game.alert {
-        border-color: rgba(196, 92, 74, 0.5);
-        background: rgba(32, 14, 14, 0.86);
-      }
-      .game.alert:hover { border-color: #e07a68; }
-      .mark.alert-mark path {
-        stroke: #e07a68;
-        fill: rgba(196, 92, 74, 0.14);
-        stroke-width: 4;
-      }
-      .game.alert .tags span {
-        border-color: rgba(224, 122, 104, 0.45);
-        color: #e7b2a8;
-      }
-      .game.alert .go {
-        background: linear-gradient(180deg, #f0b2a6, #b55248);
-        color: #2a100e;
-      }
-      @media (max-width: 640px) {
-        .game { grid-template-columns: auto 1fr; }
-        .go { grid-column: 2; justify-self: start; }
-      }
+      .group.mi .game { border-color: rgba(215, 210, 197, 0.28); }
+      .group.mi h2, .group.mi .game:hover { color: inherit; border-color: var(--paper); }
+      .group.jie .game { border-color: rgba(126, 208, 168, 0.32); background: rgba(10, 24, 20, 0.72); }
+      .group.jie h2 { color: var(--jade); }
+      .group.jie .game:hover { border-color: var(--jade); }
+      .group.da .game { border-color: rgba(224, 122, 104, 0.45); background: rgba(32, 14, 14, 0.82); }
+      .group.da h2 { color: var(--alert); }
+      .group.da .game:hover { border-color: var(--alert); }
+      .mark { width: 52px; height: 52px; }
+      .mark path, .mark circle, .mark rect { fill: none; stroke: var(--gold); stroke-width: 3.5; stroke-linecap: round; }
+      .group.mi .mark path, .group.mi .mark circle, .group.mi .mark rect { stroke: var(--paper); }
+      .group.jie .mark path, .group.jie .mark circle { stroke: var(--jade); }
+      .group.da .mark path, .group.da .mark rect { stroke: var(--alert); }
+      h3 { margin: 0 0 4px; font-family: "ZCOOL XiaoWei", serif; font-size: 26px; font-weight: 400; letter-spacing: 0.08em; }
+      .game p { margin: 0; color: var(--muted); line-height: 1.5; }
+      #empty { display: none; color: var(--muted); }
+      #empty.show { display: block; }
+      a.game[hidden], .group[hidden] { display: none; }
     </style>
   </head>
   <body>
     <p class="eyebrow">GAMES</p>
     <h1>遊戲</h1>
-    <p class="lead">選一局，打開就能玩。</p>
-    <div class="list">
-      <a class="game" href="jingzi/">
-        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M8 22 H56 M8 42 H56 M22 8 V56 M42 8 V56" />
-        </svg>
-        <span>
-          <h2>井字過三關</h2>
-          <p>金叉對玉環。橫、直、斜連成三子，先勝兩關。</p>
-          <span class="tags">
-            <span>立體</span>
-            <span>人機</span>
-            <span>同機</span>
-            <span>連線</span>
-          </span>
-        </span>
-        <span class="go">進入</span>
-      </a>
-      <a class="game snake" href="tanshe/">
-        <svg class="mark snake-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M12 40 C18 28, 26 24, 34 28 C42 32, 46 24, 52 20" />
-          <path d="M34 28 C30 36, 24 42, 18 46" />
-          <circle cx="52" cy="20" r="4" />
-        </svg>
-        <span>
-          <h2>貪吃蛇</h2>
-          <p>墨竹園裡鑽行。吃果子就會長一節，別撞牆，也別咬到自己。</p>
-          <span class="tags">
-            <span>經典</span>
-            <span>單人</span>
-            <span>觸控</span>
-            <span>計分</span>
-          </span>
-        </span>
-        <span class="go">進入</span>
-      </a>
-      <a class="game mine" href="cailai/">
-        <svg class="mark mine-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M14 18 H50 V46 H14 Z" />
-          <path d="M32 18 V46 M14 32 H50" />
-          <circle cx="44" cy="22" r="5" />
-          <path d="M44 22 V34" />
-        </svg>
-        <span>
-          <h2>踩雷</h2>
-          <p>夜燈礦場。揭開空格、插上朱砂旗，別踩中那一顆。</p>
-          <span class="tags">
-            <span>經典</span>
-            <span>單人</span>
-            <span>三級</span>
-            <span>計時</span>
-          </span>
-        </span>
-        <span class="go">進入</span>
-      </a>
-      <a class="game alert" href="hongjing/">
-        <svg class="mark alert-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M14 40 H50 V50 H14 Z" />
-          <path d="M24 40 V30 H40 V40" />
-          <path d="M32 30 V16" />
-          <path d="M20 22 A16 16 0 0 1 44 22" />
-        </svg>
-        <span>
-          <h2>紅警 2</h2>
-          <p>既有的網頁紅井。在這一頁裡連線對戰，不用另外安裝。</p>
-          <span class="tags">
-            <span>即時戰略</span>
-            <span>連線</span>
-            <span>RA2WEB</span>
-            <span>網頁紅井</span>
-          </span>
-        </span>
-        <span class="go">進入</span>
-      </a>
+    <p class="lead">十三款。打開就能玩。</p>
+    <div class="tools">
+      <nav class="jump" aria-label="分類">
+        <a href="#qi">棋</a>
+        <a href="#mi">解謎</a>
+        <a href="#jie">街機</a>
+        <a href="#da">大型</a>
+      </nav>
+      <input id="find" type="search" placeholder="搜尋遊戲" aria-label="搜尋遊戲" />
     </div>
+    <p id="empty">沒有符合的遊戲。</p>
+
+    <section class="group" id="qi">
+      <h2>棋</h2>
+      <div class="grid">
+        <a class="game" href="jingzi/" data-find="井字過三關 jingzi tic tac toe">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 22 H54 M10 42 H54 M22 10 V54 M42 10 V54" /></svg>
+          <span><h3>井字過三關</h3><p>金叉對玉環，先勝兩關。</p></span>
+        </a>
+        <a class="game" href="wuziqi/" data-find="五子棋 gomoku wuziqi">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="20" cy="24" r="8" /><circle cx="40" cy="40" r="8" /><path d="M16 16 H48 V48 H16 Z" /></svg>
+          <span><h3>五子棋</h3><p>連成五子就贏。可跟電腦下。</p></span>
+        </a>
+        <a class="game" href="heibai/" data-find="黑白棋 reversi othello heibai">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="24" cy="32" r="12" /><circle cx="40" cy="32" r="12" /></svg>
+          <span><h3>黑白棋</h3><p>夾住對方的棋子就翻面。</p></span>
+        </a>
+        <a class="game" href="xiangqi/" data-find="中國象棋 xiangqi chess">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 14 H50 V50 H14 Z M14 32 H50 M32 14 V50" /></svg>
+          <span><h3>中國象棋</h3><p>楚河漢界。紅方先走。</p></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="group mi" id="mi">
+      <h2>解謎</h2>
+      <div class="grid">
+        <a class="game" href="cailai/" data-find="踩雷 minesweeper cailai">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 18 H50 V46 H14 Z M32 18 V46 M14 32 H50" /><circle cx="44" cy="22" r="4" /></svg>
+          <span><h3>踩雷</h3><p>揭開空格，右鍵插旗。</p></span>
+        </a>
+        <a class="game" href="erling/" data-find="2048 erling">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 14 H32 V32 H14 Z M32 14 H50 V32 H32 Z M14 32 H32 V50 H14 Z M32 32 H50 V50 H32 Z" /></svg>
+          <span><h3>2048</h3><p>滑動合併，湊到二千四十八。</p></span>
+        </a>
+        <a class="game" href="huarong/" data-find="華容道 klotski huarong">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="22" y="12" width="20" height="20" /><rect x="14" y="34" width="12" height="18" /><rect x="38" y="34" width="12" height="18" /></svg>
+          <span><h3>華容道</h3><p>把曹操移到出口。</p></span>
+        </a>
+        <a class="game" href="jielong/" data-find="接龍 klondike solitaire jielong">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M18 12 H40 V52 H18 Z M28 12 H50 V52 H28 Z" /></svg>
+          <span><h3>接龍</h3><p>紅黑相間，從 A 收到 K。</p></span>
+        </a>
+        <a class="game" href="lianlian/" data-find="連連看 mahjong connect lianlian">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 24 H28 V40 H16 Z M36 24 H48 V40 H36 Z M28 32 H36" /></svg>
+          <span><h3>連連看</h3><p>兩枚相同，最多轉兩個彎。</p></span>
+        </a>
+        <a class="game" href="shudu/" data-find="數獨 sudoku shudu">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 12 H52 V52 H12 Z M25 12 V52 M39 12 V52 M12 25 H52 M12 39 H52" /></svg>
+          <span><h3>數獨</h3><p>每列、每行、每宮都是一到九。</p></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="group jie" id="jie">
+      <h2>街機</h2>
+      <div class="grid">
+        <a class="game" href="tanshe/" data-find="貪吃蛇 snake tanshe">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 40 C18 28, 26 24, 34 28 C42 32, 46 24, 52 20" /><circle cx="52" cy="20" r="4" /></svg>
+          <span><h3>貪吃蛇</h3><p>吃果子就會長，別咬到自己。</p></span>
+        </a>
+        <a class="game" href="pozhuang/" data-find="破磚 brick pozhuang">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 18 H28 M36 18 H52 M12 30 H24 M40 30 H52 M18 46 H46" /><circle cx="32" cy="40" r="3" /></svg>
+          <span><h3>破磚</h3><p>接住彈珠，把磚打完。</p></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="group da" id="da">
+      <h2>大型</h2>
+      <div class="grid">
+        <a class="game" href="hongjing/" data-find="紅警 紅色警戒 ra2 hongjing RA2WEB">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 40 H50 V50 H14 Z M24 40 V30 H40 V40 M32 30 V16 M20 22 A16 16 0 0 1 44 22" /></svg>
+          <span><h3>紅警 2</h3><p>網頁紅井。既有的連線對戰版。</p></span>
+        </a>
+      </div>
+    </section>
+    <script>
+      const find = document.querySelector('#find');
+      const empty = document.querySelector('#empty');
+      find.addEventListener('input', () => {
+        const query = find.value.trim().toLowerCase();
+        let shown = 0;
+        for (const card of document.querySelectorAll('a.game')) {
+          const blob = `${card.innerText} ${card.dataset.find || ''}`.toLowerCase();
+          const match = !query || blob.includes(query);
+          card.hidden = !match;
+          if (match) shown += 1;
+        }
+        for (const section of document.querySelectorAll('section.group')) {
+          section.hidden = ![...section.querySelectorAll('a.game')].some((card) => !card.hidden);
+        }
+        empty.classList.toggle('show', shown === 0);
+      });
+    </script>
   </body>
 </html>

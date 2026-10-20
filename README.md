@@ -22,6 +22,42 @@ Open the game list:
 
 夜燈礦場。點開空格，右鍵或長按插旗。初級、中級、高級三種盤面，第一下不會踩雷。
 
+## 五子棋
+
+**https://liuchiwai0101.github.io/Games/wuziqi/**
+
+## 黑白棋
+
+**https://liuchiwai0101.github.io/Games/heibai/**
+
+## 中國象棋
+
+**https://liuchiwai0101.github.io/Games/xiangqi/**
+
+## 2048
+
+**https://liuchiwai0101.github.io/Games/erling/**
+
+## 華容道
+
+**https://liuchiwai0101.github.io/Games/huarong/**
+
+## 接龍
+
+**https://liuchiwai0101.github.io/Games/jielong/**
+
+## 連連看
+
+**https://liuchiwai0101.github.io/Games/lianlian/**
+
+## 數獨
+
+**https://liuchiwai0101.github.io/Games/shudu/**
+
+## 破磚
+
+**https://liuchiwai0101.github.io/Games/pozhuang/**
+
 ## 紅警 2
 
 **https://liuchiwai0101.github.io/Games/hongjing/**

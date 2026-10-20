@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>中國象棋</title>
+    <meta name="description" content="中國象棋。楚河漢界，紅方先走。可同機，或跟電腦下。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../play.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">棋</p>
+        <h1>中國象棋</h1>
+      </div>
+      <button type="button" id="reset" class="textbtn">重開</button>
+    </header>
+    <main class="stage">
+      <div class="modes" role="group" aria-label="對手">
+        <button type="button" data-mode="ai" class="textbtn on">電腦</button>
+        <button type="button" data-mode="hot" class="textbtn">同機</button>
+      </div>
+      <p id="status" class="status">紅方先走。</p>
+      <div class="xiang">
+        <div class="sheet">
+          <svg class="lines" viewBox="0 0 8 9" aria-hidden="true">
+            <g fill="none" stroke="#6a4524" stroke-width="0.045">
+              <line x1="0" y1="0" x2="8" y2="0" />
+              <line x1="0" y1="1" x2="8" y2="1" />
+              <line x1="0" y1="2" x2="8" y2="2" />
+              <line x1="0" y1="3" x2="8" y2="3" />
+              <line x1="0" y1="4" x2="8" y2="4" />
+              <line x1="0" y1="5" x2="8" y2="5" />
+              <line x1="0" y1="6" x2="8" y2="6" />
+              <line x1="0" y1="7" x2="8" y2="7" />
+              <line x1="0" y1="8" x2="8" y2="8" />
+              <line x1="0" y1="9" x2="8" y2="9" />
+              <line x1="0" y1="0" x2="0" y2="9" />
+              <line x1="8" y1="0" x2="8" y2="9" />
+              <line x1="1" y1="0" x2="1" y2="4" /><line x1="1" y1="5" x2="1" y2="9" />
+              <line x1="2" y1="0" x2="2" y2="4" /><line x1="2" y1="5" x2="2" y2="9" />
+              <line x1="3" y1="0" x2="3" y2="4" /><line x1="3" y1="5" x2="3" y2="9" />
+              <line x1="4" y1="0" x2="4" y2="4" /><line x1="4" y1="5" x2="4" y2="9" />
+              <line x1="5" y1="0" x2="5" y2="4" /><line x1="5" y1="5" x2="5" y2="9" />
+              <line x1="6" y1="0" x2="6" y2="4" /><line x1="6" y1="5" x2="6" y2="9" />
+              <line x1="7" y1="0" x2="7" y2="4" /><line x1="7" y1="5" x2="7" y2="9" />
+              <line x1="3" y1="0" x2="5" y2="2" /><line x1="5" y1="0" x2="3" y2="2" />
+              <line x1="3" y1="7" x2="5" y2="9" /><line x1="5" y1="7" x2="3" y2="9" />
+            </g>
+            <text x="2" y="4.68" text-anchor="middle" font-size="0.38" fill="#6a4524">楚河</text>
+            <text x="6" y="4.68" text-anchor="middle" font-size="0.38" fill="#6a4524">漢界</text>
+          </svg>
+          <div id="layer"></div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

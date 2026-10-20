@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>黑白棋</title>
+    <meta name="description" content="黑白棋。夾住對方的棋子就翻面。同機，或跟電腦下。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../play.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">棋</p>
+        <h1>黑白棋</h1>
+      </div>
+      <button type="button" id="reset" class="textbtn">重開</button>
+    </header>
+    <main class="stage">
+      <div class="modes" role="group" aria-label="對手">
+        <button type="button" data-mode="ai" class="textbtn on">電腦</button>
+        <button type="button" data-mode="hot" class="textbtn">同機</button>
+      </div>
+      <p id="status" class="status"></p>
+      <div id="board" class="board"></div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

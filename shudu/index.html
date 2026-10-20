@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>數獨</title>
+    <meta name="description" content="數獨。每列、每行、每個九宮都是 1 到 9。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../play.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">解謎</p>
+        <h1>數獨</h1>
+      </div>
+      <button type="button" id="reset" class="textbtn">新題</button>
+    </header>
+    <main class="stage">
+      <p id="status" class="status">選一格，再按數字。</p>
+      <div id="grid" class="grid"></div>
+      <div class="nums" id="nums">
+        <button type="button" data-n="1">1</button>
+        <button type="button" data-n="2">2</button>
+        <button type="button" data-n="3">3</button>
+        <button type="button" data-n="4">4</button>
+        <button type="button" data-n="5">5</button>
+        <button type="button" data-n="6">6</button>
+        <button type="button" data-n="7">7</button>
+        <button type="button" data-n="8">8</button>
+        <button type="button" data-n="9">9</button>
+        <button type="button" data-n="0">清除</button>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

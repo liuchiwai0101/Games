@@ -1,0 +1,21 @@
+body { --bg: #121018; --accent: #d7b4e8; }
+.grid {
+  display: grid;
+  gap: 6px;
+  width: min(96vw, 560px);
+  margin: 0 auto;
+}
+.tile {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(244, 236, 223, 0.16);
+  background: #241c2a;
+  font-family: "ZCOOL XiaoWei", serif;
+  font-size: clamp(18px, 4vw, 28px);
+}
+.tile.on { outline: 3px solid var(--accent); background: #3a2a40; }
+.tile.gone { visibility: hidden; }
+.t1 { color: #f0d78a; } .t2 { color: #9fd7c8; } .t3 { color: #f0a3a0; }
+.t4 { color: #b9c4f5; } .t5 { color: #e7c27a; } .t6 { color: #c7e7a1; }
+.t7 { color: #f2c1dd; } .t8 { color: #f0c89a; } .t9 { color: #a8d8f0; }
+.t10 { color: #e6d2ff; } .t11 { color: #f6e7a8; } .t12 { color: #cde8c2; }

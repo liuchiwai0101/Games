@@ -1,0 +1,85 @@
+:root {
+  color-scheme: dark;
+  --ink: #f4ecdf;
+  --muted: #cbbda8;
+  --gold: #e4c27a;
+  --line: rgba(228, 194, 122, 0.38);
+  --bg: #100c0b;
+  --accent: var(--gold);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Noto Serif TC", "Songti TC", serif;
+}
+
+button, a { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: transparent; }
+
+.top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: max(16px, env(safe-area-inset-top)) 16px 0;
+}
+
+.brand { text-align: center; }
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-family: "ZCOOL XiaoWei", "Noto Serif TC", serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.ghost, .textbtn {
+  border-radius: 999px;
+  padding: 8px 14px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: rgba(22, 16, 14, 0.72);
+}
+
+.textbtn.on {
+  background: var(--accent);
+  color: #24170c;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.stage {
+  width: min(980px, calc(100% - 16px));
+  margin: 8px auto 36px;
+}
+
+.status {
+  min-height: 1.6em;
+  margin: 8px 0;
+  text-align: center;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.modes, .toolbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 14px;
+}

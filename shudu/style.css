@@ -1,0 +1,36 @@
+body { --bg: #12141a; --accent: #d7d2c5; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: min(96vw, 460px);
+  margin: 0 auto;
+  border: 2px solid #d7d2c5;
+  background: #d7d2c5;
+  gap: 1px;
+}
+.cell {
+  aspect-ratio: 1;
+  background: #f7f4ee;
+  color: #1c2430;
+  font-family: "ZCOOL XiaoWei", serif;
+  font-size: clamp(16px, 4.4vw, 28px);
+}
+.cell.given { color: #1c2430; font-weight: 700; }
+.cell.entry { color: #2a5ea8; }
+.cell.bad { background: #f3c7c2; }
+.cell.on { outline: 2px solid #2a5ea8; outline-offset: -3px; }
+.cell.b { border-right: 2px solid #1c2430; }
+.cell.d { border-bottom: 2px solid #1c2430; }
+.nums {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  width: min(96vw, 460px);
+  margin: 14px auto 0;
+}
+.nums button {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  letter-spacing: 0.08em;
+}

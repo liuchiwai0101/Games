@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>2048</title>
+    <meta name="description" content="滑動合併相同數字，湊到 2048。" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../play.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="ghost" href="../">遊戲</a>
+      <div class="brand">
+        <p class="eyebrow">解謎</p>
+        <h1>2048</h1>
+      </div>
+      <button type="button" id="reset" class="textbtn">重開</button>
+    </header>
+    <main class="stage">
+      <div class="scores">
+        <p>分數 <strong id="score">0</strong></p>
+        <p>最佳 <strong id="best">0</strong></p>
+      </div>
+      <p id="status" class="status">滑動合併相同數字。</p>
+      <div id="grid" class="grid"></div>
+      <div class="pad" aria-hidden="true">
+        <button type="button" data-dir="up">上</button>
+        <button type="button" data-dir="left">左</button>
+        <button type="button" data-dir="down">下</button>
+        <button type="button" data-dir="right">右</button>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
